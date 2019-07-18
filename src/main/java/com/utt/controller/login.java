@@ -34,8 +34,15 @@ public class login {
     public  List<logindto> result4(@RequestParam("text") String text)
     {
         return loginservice.elasticquery(text);
+
     }
 
+    @PostMapping("/getselectednamephone")
+    public  List<logindto> result4(@RequestParam("name") String name,@RequestParam("phone") String phone)
+    {
+        return loginservice.elasticqueryphonename(name,phone);
+
+    }
 
 
 }

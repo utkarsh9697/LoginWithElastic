@@ -16,4 +16,6 @@ public interface loginservice {
     Iterable<logindto> getall();
 
     List<logindto> elasticquery(String text);
+
+    List<logindto> elasticqueryphonename(String name, String phone);
 }

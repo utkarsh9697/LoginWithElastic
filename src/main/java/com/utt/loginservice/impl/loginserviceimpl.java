@@ -97,5 +97,26 @@ public class loginserviceimpl implements loginservice {
         return  result;
     }
 
+    @Override
+    public List<logindto> elasticqueryphonename(String name, String phone)
+    {
+
+        QueryBuilder query = QueryBuilders.boolQuery()
+                .must(
+                        QueryBuilders.queryStringQuery(name+"*")
+                                .lenient(true)
+                                .field("name")
+                ).must(QueryBuilders.queryStringQuery(phone + "*")
+                        .lenient(true)
+                        .field("phone")
+                       );
+        NativeSearchQuery build = new NativeSearchQueryBuilder()
+                .withQuery(query)
+                .build();
+
+        List<logindto> result = elasticsearchTemplate.queryForList(build, logindto.class);
+        return  result;
+    }
+
 }
 
