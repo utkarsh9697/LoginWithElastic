@@ -35,13 +35,6 @@ public class loginserviceimpl implements loginservice {
             resp.setId(logindto.getId());
             resp.setName(logindto.getName());
             resp.setPhone(logindto.getPhone());
-
-//            try {
-//                resp.setProfilePicture(multipartFile);
-//            }catch (Exception ex)
-//            {
-//                throw new BadRequestException("Error is "+ ex);
-//            }
             loginrepo.save(resp);
         }
 
